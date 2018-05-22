@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Rest by Example</h1>
+        <p>A simple rest service to get top songs and add to database</p>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Track</th>
+            <th>Artist</th>
+            <th>Genre</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for song in songs %}
+        <tr>
+            <td>{{song.name}}</td>
+            <td>{{song.artist}}</td>
+            <td>{{song.genre}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    <div class="col-sm-8 col-sm-offset-2">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Method</th>
+            <th>Header</th>
+            <th>Body</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>GET</td>
+            <td>[ http://localhost:5151/songs , http://localhost:5151/songs/ ,http://localhost:5151/songs/'song' ]</td>
+            <td> N/A </td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>http://localhost:5151/songs/</td>
+            <td>{song object}</td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>http://localhost:5151/songs/song_before</td>
+            <td> N/A </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>http://localhost:5151/songs/song_to_delete</td>
+            <td>'song_to_delete'</td>
+        </tr>
+
+        </tbody>
+    </table>
+        </div>
+    </div>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+</body>
+</html>
